@@ -43,10 +43,10 @@
                     </x-shopper::link>
                 @endcan
 
-                <a href="https://laravelshopper.dev" target="_blank" class="sh-sidebar-item gap-2 sh-sidebar-item-inactive">
+                {{-- <a href="https://laravelshopper.dev" target="_blank" class="sh-sidebar-item gap-2 sh-sidebar-item-inactive">
                     <x-untitledui-code-browser class="size-5 text-gray-400" stroke-width="1.5" aria-hidden="true" />
                     {{ __('shopper::pages/dashboard.cards.doc_title') }}
-                </a>
+                </a> --}}
             </div>
         </div>
     </div>
