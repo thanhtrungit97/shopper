@@ -1,4 +1,4 @@
-<div class="my-10 flex justify-center text-center">
+{{-- <div class="my-10 flex justify-center text-center">
     <div
         class="flex items-center overflow-hidden rounded-lg bg-gray-50 shadow ring-1 ring-gray-200 dark:bg-gray-900 dark:ring-white/10"
     >
@@ -21,4 +21,4 @@
             </a>
         </div>
     </div>
-</div>
+</div> --}}
