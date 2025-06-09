@@ -262,7 +262,7 @@
                         </div>
                     @endif
                 </div>
-                <div class="py-4 sm:pr-8">
+                {{-- <div class="py-4 sm:pr-8">
                     <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">
                         {{ __('shopper::words.shipping') }}
                     </h3>
@@ -331,7 +331,7 @@
                             </div>
                         @endif
                     </div>
-                </div>
+                </div> --}}
                 <div class="py-4 sm:pr-8">
                     <div class="flex justify-end">
                         <div class="w-full space-y-1 text-right text-gray-700 dark:text-gray-300 sm:max-w-xs">
