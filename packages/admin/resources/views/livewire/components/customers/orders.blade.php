@@ -30,6 +30,7 @@
                                 {{ shopper_money_format($total, $order->currency_code) }}
                             </dd>
                         </div>
+                        @if ($order->shippingAddress)
                         <div class="mt-5 sm:col-span-2 sm:mt-0">
                             <dt
                                 class="text-xs font-medium uppercase leading-4 tracking-wider text-gray-500 dark:text-gray-400"
@@ -43,6 +44,7 @@
                                 {{ $order->shippingAddress->country_name }}
                             </dd>
                         </div>
+                        @endif
                     </div>
                     <div class="mt-2 text-right sm:mt-0 sm:max-w-xs">
                         <dt
