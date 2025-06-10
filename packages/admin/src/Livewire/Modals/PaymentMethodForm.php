@@ -11,6 +11,7 @@ use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Notifications\Notification;
 use Illuminate\Contracts\View\View;
+use Shopper\Core\Models\Bank;
 use Shopper\Core\Models\PaymentMethod;
 use Shopper\Livewire\Components\ModalComponent;
 
@@ -59,6 +60,30 @@ class PaymentMethodForm extends ModalComponent implements HasForms
                     ->label(__('shopper::forms.label.payment_doc'))
                     ->placeholder('https://notchpay.co')
                     ->url(),
+                Components\Toggle::make('is_bank_transfer')
+                    ->live()
+                    ->label('Có chuyển khoản ngân hàng?')
+                    ->helperText('Phương thức thanh toán này sẽ tạo mã QR để chuyển khoản ngân hàng.')
+                    ->columnSpan('full'),
+                Components\Select::make('bank_id')
+                    ->label('Ngân hàng')
+                    ->options(
+                        Bank::query()
+                            ->pluck('name', 'id')
+                            ->toArray()
+                    )
+                    ->searchable()
+                    ->required(fn (callable $get) => $get('is_bank_transfer'))
+                    ->columnSpan('full')
+                    ->visible(fn (callable $get) => $get('is_bank_transfer')),
+                Components\TextInput::make('bank_account_name')
+                    ->label('Chủ tài khoản')
+                    ->required(fn (callable $get) => $get('is_bank_transfer'))
+                    ->visible(fn (callable $get) => $get('is_bank_transfer')),
+                Components\TextInput::make('bank_account_number')
+                    ->label('Số tài khoản')
+                    ->required(fn (callable $get) => $get('is_bank_transfer'))
+                    ->visible(fn (callable $get) => $get('is_bank_transfer')),
                 Components\Textarea::make('description')
                     ->label(__('shopper::forms.label.additional_details'))
                     ->helperText(__('shopper::pages/settings/payments.help_text'))

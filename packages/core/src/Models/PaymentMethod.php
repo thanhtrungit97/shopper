@@ -32,6 +32,7 @@ class PaymentMethod extends Model
 
     protected $casts = [
         'is_enabled' => 'boolean',
+        'is_bank_transfer' => 'boolean',
     ];
 
     protected $appends = [
