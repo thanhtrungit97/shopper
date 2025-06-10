@@ -40,9 +40,13 @@ final class StoreInformation extends StepComponent implements HasForms
             ->get();
 
         $this->form->fill(
-            $settings->mapWithKeys(
+            array_merge([
+                'country_id' => "243",
+                'currencies' => ["148"],
+                'default_currency_id' => "148",
+            ], $settings->mapWithKeys(
                 fn (Setting $item) => [$item['key'] => $item['value']]
-            )->toArray()
+            )->toArray())
         );
     }
 
@@ -62,7 +66,7 @@ final class StoreInformation extends StepComponent implements HasForms
                             ->label(__('shopper::forms.label.email'))
                             ->prefixIcon('untitledui-mail')
                             ->autocomplete('email-address')
-                            ->placeholder('your@laravel.store')
+                            ->placeholder('your@tinopos.store')
                             ->email()
                             ->required(),
                     ]),

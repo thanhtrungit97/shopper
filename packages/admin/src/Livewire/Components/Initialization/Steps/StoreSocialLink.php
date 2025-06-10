@@ -46,7 +46,7 @@ final class StoreSocialLink extends StepComponent implements HasForms
                         Blade))
                     )
                     ->label(__('shopper::words.socials.facebook'))
-                    ->placeholder('https://facebook.com/laravelshopper'),
+                    ->placeholder('https://facebook.com/tinogroupjsc'),
 
                 Forms\Components\TextInput::make('instagram_link')
                     ->prefix(
@@ -58,7 +58,7 @@ final class StoreSocialLink extends StepComponent implements HasForms
                         Blade))
                     )
                     ->label(__('shopper::words.socials.instagram'))
-                    ->placeholder('https://instagram.com/laravelshopper'),
+                    ->placeholder('https://instagram.com/tinogroupjsc'),
 
                 Forms\Components\TextInput::make('twitter_link')
                     ->prefix(
@@ -70,7 +70,7 @@ final class StoreSocialLink extends StepComponent implements HasForms
                         Blade))
                     )
                     ->label(__('shopper::words.socials.twitter'))
-                    ->placeholder('https://twitter.com/laravelshopper'),
+                    ->placeholder('https://twitter.com/tinogroupjsc'),
             ])
             ->statePath('data');
     }

@@ -48,13 +48,13 @@ final class StoreAddress extends StepComponent implements HasForms
             ->schema([
                 Forms\Components\TextInput::make('street_address')
                     ->label(__('shopper::forms.label.street_address'))
-                    ->placeholder('Akwa Avenue 34')
+                    ->placeholder('123 Nguyễn Văn Linh, TP. Đà Nẵng')
                     ->columnSpan(['lg' => 2])
                     ->required(),
 
                 Forms\Components\TextInput::make('postal_code')
                     ->label(__('shopper::forms.label.postal_code'))
-                    ->placeholder('00237')
+                    ->placeholder('550000')
                     ->required(),
 
                 Forms\Components\TextInput::make('city')
