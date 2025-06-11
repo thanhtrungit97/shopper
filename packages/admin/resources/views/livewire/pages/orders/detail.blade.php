@@ -249,13 +249,6 @@
                                         <p class="text-sm text-yellow-700">
                                             {{ __('shopper::pages/orders.no_payment_method') }}
                                         </p>
-                                        <a
-                                            href="https://laravelshopper.dev/docs/2.x/payment-methods"
-                                            target="_blank"
-                                            class="mt-1.5 inline-flex text-sm font-medium leading-5 text-yellow-700 underline hover:text-yellow-600"
-                                        >
-                                            {{ __('shopper::pages/orders.read_about_payment') }}
-                                        </a>
                                     </div>
                                 </div>
                             </div>
