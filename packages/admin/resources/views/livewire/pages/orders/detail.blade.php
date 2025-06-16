@@ -255,6 +255,22 @@
                         </div>
                     @endif
                 </div>
+                <div class="py-4 sm:pr-8">
+                    <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">
+                        Trạng thái hoá đơn
+                    </h3>
+                    <div class="mt-4">
+                        @if ($order->is_export_invoice)
+                            <x-filament::badge color="success">
+                                Yêu cầu xuất hoá đơn
+                            </x-filament::badge>
+                        @else
+                            <x-filament::badge color="danger">
+                                Không yêu cầu xuất hoá đơn
+                            </x-filament::badge>
+                        @endif
+                    </div>
+                </div>
                 {{-- <div class="py-4 sm:pr-8">
                     <h3 class="text-lg font-medium leading-6 text-gray-900 dark:text-white">
                         {{ __('shopper::words.shipping') }}

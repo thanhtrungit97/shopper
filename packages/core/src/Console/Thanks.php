@@ -18,12 +18,14 @@ final class Thanks
         '  - Star or contribute to Shopper:',
         '    <options=bold>https://github.com/shopperlabs/shopper</>',
         '  - Tweet something about Shopper on Twitter:',
-        '    <options=bold>https://twitter.com/laravelshopper</>',
+        '    <options=bold>https://twitter.com/tinogroupjsc</>',
         '  - Sponsor the creator:',
         '    <options=bold>https://github.com/sponsors/mckenziearts</>',
     ];
 
-    public function __construct(private readonly OutputInterface $output) {}
+    public function __construct(private readonly OutputInterface $output)
+    {
+    }
 
     public function __invoke(): void
     {

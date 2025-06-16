@@ -184,7 +184,7 @@ class General extends Component implements HasForms
                                 Blade))
                             )
                             ->label(__('shopper::words.socials.facebook'))
-                            ->placeholder('https://facebook.com/laravelshopper'),
+                            ->placeholder('https://facebook.com/tinogroupjsc'),
                         Components\Grid::make()
                             ->schema([
                                 Components\TextInput::make('instagram_link')
@@ -197,7 +197,7 @@ class General extends Component implements HasForms
                                         Blade))
                                     )
                                     ->label(__('shopper::words.socials.instagram'))
-                                    ->placeholder('https://instagram.com/laravelshopper'),
+                                    ->placeholder('https://instagram.com/tinogroupjsc'),
                                 Components\TextInput::make('twitter_link')
                                     ->prefix(
                                         fn (): HtmlString => new HtmlString(Blade::render(<<<'Blade'
@@ -208,7 +208,7 @@ class General extends Component implements HasForms
                                         Blade))
                                     )
                                     ->label(__('shopper::words.socials.twitter'))
-                                    ->placeholder('https://twitter.com/laravelshopper'),
+                                    ->placeholder('https://twitter.com/tinogroupjsc'),
                             ]),
                     ]),
             ])
