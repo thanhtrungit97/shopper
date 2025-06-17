@@ -16,10 +16,10 @@ trait HasRegisterConfigAndMigrationFiles
 
     public function registerDatabase(): void
     {
-        if (! file_exists($this->root . '/database')) {
-            return;
-        }
+        // if (! file_exists($this->root . '/database')) {
+        //     return;
+        // }
 
-        $this->loadMigrationsFrom($this->root . '/database/migrations');
+        // $this->loadMigrationsFrom($this->root . '/database/migrations');
     }
 }
