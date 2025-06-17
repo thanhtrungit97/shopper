@@ -55,11 +55,14 @@ class Order extends Model
     protected $casts = [
         'status' => OrderStatus::class,
         'canceled_at' => 'datetime',
+        'price_amount' => 'integer',
+        'tax_amount' => 'integer',
+        'total_amount' => 'integer',
     ];
 
     public function __construct(array $attributes = [])
     {
-        if (! isset($attributes['status'])) {
+        if (!isset($attributes['status'])) {
             $this->setDefaultOrderStatus();
         }
 
@@ -187,5 +190,81 @@ class Order extends Model
             ),
             true
         );
+    }
+
+    public function taxes(): HasMany
+    {
+        return $this->hasMany(OrderTax::class);
+    }
+
+    /**
+     * Get total tax amount for this order
+     */
+    public function getTotalTaxAmount(): int
+    {
+        return $this->taxes()->sum('tax_amount');
+    }
+
+    /**
+     * Get formatted total tax amount
+     */
+    public function getFormattedTotalTaxAmount(): string
+    {
+        return shopper_money_format($this->getTotalTaxAmount(), $this->currency_code);
+    }
+
+    /**
+     * Get order total including taxes
+     */
+    public function getTotalWithTaxes(): int
+    {
+        return ($this->price_amount ?? 0) + $this->getTotalTaxAmount();
+    }
+
+    /**
+     * Get formatted order total including taxes
+     */
+    public function getFormattedTotalWithTaxes(): string
+    {
+        return shopper_money_format($this->getTotalWithTaxes(), $this->currency_code);
+    }
+
+    /**
+     * Get tax breakdown grouped by tax code
+     */
+    public function getTaxBreakdown(): array
+    {
+        return $this->taxes()
+            ->selectRaw('tax_code, tax_name, SUM(tax_amount) as total_amount, AVG(tax_rate) as avg_rate')
+            ->groupBy('tax_code', 'tax_name')
+            ->get()
+            ->map(function ($tax) {
+                return [
+                    'tax_code' => $tax->tax_code,
+                    'tax_name' => $tax->tax_name,
+                    'total_amount' => $tax->total_amount,
+                    'avg_rate' => $tax->avg_rate,
+                    'formatted_amount' => shopper_money_format($tax->total_amount, $this->currency_code),
+                ];
+            })
+            ->toArray();
+    }
+
+    /**
+     * Check if order has any taxes
+     */
+    public function hasTaxes(): bool
+    {
+        return $this->taxes()->exists();
+    }
+
+    /**
+     * Get currency for tax calculations
+     */
+    public function getCurrencyId(): ?int
+    {
+        // This would need to be implemented based on your currency relationship
+        // For now, returning null to use default currency
+        return null;
     }
 }
