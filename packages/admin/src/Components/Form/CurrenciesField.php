@@ -25,7 +25,7 @@ final class CurrenciesField
                                 ->helperText(__('shopper::pages/products.amount_price_help_text'))
                                 ->statePath($currency->id . '.amount')
                                 ->numeric()
-                                ->rules(['regex:/^\d{1,6}(\.\d{0,2})?$/'])
+                                ->rules(['regex:/^\d{1,8}(\.\d{0,2})?$/'])
                                 ->required(fn (Forms\Get $get) => $get($currency->id . '.compare_amount') !== null)
                                 ->suffix($currency->code)
                                 ->live()
@@ -38,7 +38,7 @@ final class CurrenciesField
                                     fn (?string $state, Forms\Set $set) => $state ?? $set($currency->id . '.compare_amount', null)
                                 )
                                 ->numeric()
-                                ->rules(['regex:/^\d{1,6}(\.\d{0,2})?$/'])
+                                ->rules(['regex:/^\d{1,8}(\.\d{0,2})?$/'])
                                 ->suffix($currency->code)
                                 ->live()
                                 ->currencyMask(thousandSeparator: ',', decimalSeparator: '.', precision: 2),
@@ -47,7 +47,7 @@ final class CurrenciesField
                                 ->helperText(__('shopper::pages/products.cost_per_items_help_text'))
                                 ->statePath($currency->id . '.cost_amount')
                                 ->numeric()
-                                ->rules(['regex:/^\d{1,6}(\.\d{0,2})?$/'])
+                                ->rules(['regex:/^\d{1,8}(\.\d{0,2})?$/'])
                                 ->suffix($currency->code)
                                 ->currencyMask(thousandSeparator: ',', decimalSeparator: '.', precision: 2),
                         ])
