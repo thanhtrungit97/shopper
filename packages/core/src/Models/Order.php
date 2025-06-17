@@ -50,6 +50,21 @@ class Order extends Model
     use HasFactory;
     use SoftDeletes;
 
+    protected $fillable = [
+        'number',
+        'status',
+        'customer_id',
+        'currency_code',
+        'payment_method_id',
+        'shipping_address_id',
+        'billing_address_id',
+        'zone_id',
+        'channel_id',
+        'parent_order_id',
+        'price_amount',
+        'tax_amount',
+        'total_amount',
+    ];
     protected $guarded = [];
 
     protected $casts = [
@@ -79,12 +94,12 @@ class Order extends Model
         return OrderFactory::new();
     }
 
-    public function totalAmount(): Attribute
-    {
-        return Attribute::get(
-            fn () => Price::from(amount: $this->total(), currency: $this->currency_code)
-        );
-    }
+    // public function totalAmount(): Attribute
+    // {
+    //     return Attribute::get(
+    //         fn () => Price::from(amount: $this->total(), currency: $this->currency_code)
+    //     );
+    // }
 
     public function total(): int
     {
