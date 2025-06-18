@@ -64,6 +64,7 @@ class Order extends Model
         'price_amount',
         'tax_amount',
         'total_amount',
+        'is_export_invoice',
     ];
     protected $guarded = [];
 
@@ -73,6 +74,7 @@ class Order extends Model
         'price_amount' => 'integer',
         'tax_amount' => 'integer',
         'total_amount' => 'integer',
+        'is_export_invoice' => 'boolean',
     ];
 
     public function __construct(array $attributes = [])
