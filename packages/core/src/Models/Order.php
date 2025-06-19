@@ -65,6 +65,11 @@ class Order extends Model
         'tax_amount',
         'total_amount',
         'is_export_invoice',
+        'e_invoice_provider_code',
+        'e_invoice_pattern',
+        'e_invoice_serial',
+        'e_invoice_invoice_number',
+        'e_invoice_authority_issued_code',
     ];
     protected $guarded = [];
 
