@@ -70,7 +70,7 @@ class OrderItem extends Model
      */
     public function getTotalTaxAmount(): int
     {
-        return $this->taxes()->sum('tax_amount');
+        return (int) $this->taxes()->sum('tax_amount');
     }
 
     /**
