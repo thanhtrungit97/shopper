@@ -163,6 +163,11 @@ class Order extends Model
         return $this->belongsTo(config('auth.providers.users.model', User::class), 'customer_id');
     }
 
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(config('auth.providers.users.model', User::class), 'user_id');
+    }
+
     public function channel(): BelongsTo
     {
         return $this->belongsTo(config('shopper.models.channel'), 'channel_id');
