@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Shopper;
 
 use Closure;
+use Filament\Facades\Filament;
 use Filament\Forms\Components\TextInput;
 use Filament\Support\Colors\Color;
 use Filament\Support\Facades\FilamentColor;
@@ -83,6 +84,10 @@ final class ShopperServiceProvider extends PackageServiceProvider
             'indigo' => Color::Indigo,
             'info' => Color::Cyan,
         ]);
+
+        Filament::setCurrentPanel(
+            Filament::getPanel('shopper')
+        );
 
         Shopper::serving(function (): void {
             Shopper::setServingStatus();
